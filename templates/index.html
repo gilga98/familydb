@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Family DB</title>
+    <!--Bootstrap-->
+
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+    <!--Bootstrap-->
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        .jumbotron{
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--header-->
+<div class="jumbotron text-center" style="margin-bottom:0;background-color: #DCEDC8;">
+    <h1 class="display-2">Family Database</h1>
+</div>
+<!--header-->
+
+
+<!--navbar-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="{% url 'chatbot:index' %}">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          {% if user_messages %}
+              {% if User.is_staff %}
+        <a class="nav-link" href="{% url 'admin:logout' %}">Logout</a>
+            {% endif %}
+              {% if not User.is_staff %}
+        <a class="nav-link" href="{% url 'chatbot:loguout' %}">Logout</a>
+            {% endif %}
+
+              {% endif %}
+        {% if not user_messages %}
+       <a class="nav-link" href="{% url 'chatbot:login' %}#loggin">Login</a>
+      {% endif %}
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/backend/">Update Details</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="{% url 'chatbot:userreg' %}#reg">Register</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<!--navbar-->
+
+<!--Intro section-->
+<div class="jumbotron text-center" style="background-color:#FFECB3;margin-bottom: 0px;">
+    <h3 class="text-dark">About Family DB</h3>
+    <p>The family db is designed towards eliminating the problem
+    of forgetting small details about your near and dear ones.
+        <b>Shirin</b> is here to help you get the details you need. Chat with <b>Shirin</b>
+    to know about your friends and family.</p>
+</div>
+<!--Intro section-->
+
+
+
+<!--How to use section-->
+<div class="jumbotron text-center" style="background-color:#B2EBF2;margin-bottom: 0px;">
+    <h3 class="text-dark">How to use</h3>
+    <p>Shirin is designed towards eliminating the problem
+    of forgetting small details about your near and dear ones.
+  </p>
+    <p>
+    Shirin is capable of answering some of the most commonly
+        sought after details such as birthdays , gifting ideas ,
+       your favourite color , song or movie.
+        Shirin also suggests you the best route to your office, if you
+        give it the details about your journey.
+
+        Try some of these:
+        <ul>
+    <li>
+        Anything special today?
+    </li>
+    <li>
+        Play my favourite song.
+    </li>
+    <li>
+        Remind me my food preferences.
+    </li>
+    <li>
+        What's the best route to my office?
+    </li>
+    <li>
+        Do I have a reminder?
+    </li>
+    <li>
+       Tell me my fortune!
+    </li>
+    <li>
+       Do any of my friends have their birthdays today?
+    </li>
+    <li>
+        You are awesome Shirin!
+    </li>
+    </ul>
+    </p>
+    <h6><i>Be Warned: Shirin is a grammar-nazi!</i></h6>
+
+</div>
+<!--HOw to use section-->
+
+
+{% block content %}
+<!--Chat box-->
+<div class="jumbotron text-center" style="background-color: #ffcdd2;margin-bottom: 0;">
+<h1>Chat Window</h1>
+    <h6>Ask Shirin what you want to know</h6>
+    <div class="container bg-light" id="messagewindow" style="overflow:scroll !important;">
+    <br/>
+        {% for message in user_messages %}
+
+            <!--USer Message-->
+        <div class="row">
+            <div class="col-md-6 col-sm-12" style="margin-left: 50%;">
+                <div class="alert alert-warning" >
+                    {{ message.usermessage|safe }}
+                </div>
+            </div>
+        </div>
+        <!--USer MEssage-->
+
+
+        <!--Comp's Message-->
+        <div class="row">
+            <div class=" col-md-12 col-sm-12">
+                <div class="alert alert-info" style="margin-top: 1rem;margin-right: 50%;">
+                    {{ message.computermessage|safe }}
+                </div>
+            </div>
+        </div>
+        <!--Comp's Message-->
+
+
+
+        {% endfor %}
+    </div>
+
+    <div class="container" id="msginp" style="margin-top: 10px;">
+        <form method="post">
+            {% csrf_token %}
+
+            <input class="form-control" type=text name="chat" placeholder="Your message here">
+            <br/>
+        <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</div>
+<!--Chat box-->
+{% endblock %}
+
+<footer class="jumbotron bg-grey text-center text-dark" style="margin-bottom: 0;">
+    <h6>&copy <b>Shirin 1.0</b> </h6>
+    <p>Created using <code>Django 2.0.1</code> and <code>Bootstrap 4</code></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Family DB{% endblock %}
+{% block extrastyle %}
+
+    <style>
+    #header{
+        background-color: #FF8F00;
+    }
+    .submit-row>input{
+        background-color: #FFCA28;
+    }
+    .submit-row>input:hover{
+        background-color: #FFB300;
+    }
+
+   .module caption{
+        background-color: #FFB300;
+    }
+    a:link,a:visited,a:focus{
+        color: #000;
+    }
+    a:hover{
+        color:#444;
+    }
+
+    div.breadcrumbs{
+        background-color: #FFCA28;
+        color: black;
+    }
+
+    #branding h1 a:link{
+        color:blanchedalmond;
+        font-weight: 800;
+        font-family: "Comic Sans MS";
+    }
+    #branding h1, #branding h1 a:link, #branding h1 a:visited{
+        color: blanchedalmond;
+        font-weight: 800;
+         font-family: "Comic Sans MS";
+    }
+    input[type="submit"].default{
+        background-color: #FF5722;
+    }
+    input[type="submit"].default:hover{
+        background-color: #D84315;
+    }
+    </style>
+
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Family DB</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
