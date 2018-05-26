@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/chatbot/models.py" line="95" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64049c13-244a-4b05-9a91-4488eb69fbac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Family/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Family/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="64049c13-244a-4b05-9a91-4488eb69fbac" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +71,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Family/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="465">
+              <caret line="133" selection-start-line="133" selection-end-line="133" />
             </state>
           </provider>
         </entry>
@@ -650,8 +648,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Family/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+        <state relative-caret-position="465">
+          <caret line="133" selection-start-line="133" selection-end-line="133" />
         </state>
       </provider>
     </entry>
